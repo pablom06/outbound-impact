@@ -1,0 +1,41 @@
+{
+  "name": "outbound-impact-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Outbound Impact Dashboard - Multi-tenant SaaS with OI Admin",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "create-admin": "node scripts/create-admin.js",
+    "migrate": "psql -U postgres -d outbound_impact_prod -f migrations/001_initial_schema.sql && psql -U postgres -d outbound_impact_prod -f migrations/002_oi_admin_tables.sql"
+  },
+  "keywords": [
+    "saas",
+    "multi-tenant",
+    "qr-codes",
+    "analytics"
+  ],
+  "author": "Outbound Impact",
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.0",
+    "aws-sdk": "^2.1498.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "exceljs": "^4.4.0",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "node-ipinfo": "^3.1.1",
+    "pdfkit": "^0.14.0",
+    "pg": "^8.18.0",
+    "uuid": "^9.0.0",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
